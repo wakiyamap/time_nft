@@ -9,9 +9,9 @@ pragma solidity ^0.8.7;
 import "openzeppelin-contracts/contracts/access/Ownable.sol";
 import "openzeppelin-contracts/contracts/interfaces/IERC2981.sol";
 import "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
-import "protocol-contracts/lib-part/contracts/LibPart.sol";
-import "protocol-contracts/royalties/contracts/LibRoyaltiesV2.sol";
-import "protocol-contracts/royalties/contracts/RoyaltiesV2.sol";
+import "./LibPart.sol";
+import "./LibRoyaltiesV2.sol";
+import "./RoyaltiesV2.sol";
 import "./ITimeNFT.sol";
 
 contract TimeNFT is ITimeNFT, ERC721, Ownable, RoyaltiesV2 {
