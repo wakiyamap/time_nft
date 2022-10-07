@@ -32,6 +32,16 @@ contract NFTTest is Test {
         nftContract.mint(user1, "", "");
     }
 
+    function testBurn() public {
+        vm.prank(owner);
+        nftContract.mint(owner, "", "");
+        uint256 tokenBalanceBeforeBurn = nftContract.balanceOf(owner);
+        assertEq(tokenBalanceBeforeBurn, 1);
+        nftContract.burn(0);
+        uint256 tokenBalanceAfterBurn = nftContract.balanceOf(owner);
+        assertEq(tokenBalanceAfterBurn, 0);
+    }
+
     function testSettimezone() public {
         vm.prank(owner);
         nftContract.mint(user1, "daytime", "night");

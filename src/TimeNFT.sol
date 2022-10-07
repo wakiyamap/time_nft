@@ -77,6 +77,19 @@ contract TimeNFT is ITimeNFT, ERC721, Ownable, RoyaltiesV2 {
     }
 
     /**
+     * @dev Burns `tokenId`. See {ERC721-_burn}.
+     *
+     * Requirements:
+     *
+     * - The caller must own `tokenId` or be an approved operator.
+     */
+    function burn(uint256 tokenId) public virtual {
+        //solhint-disable-next-line max-line-length
+        require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: caller is not token owner or approved");
+        _burn(tokenId);
+    }
+
+    /**
      * @dev Set the percentage basis points of the loyalty.
      */
     function settimezone(uint256 tokenId, uint256 timezone) external {
